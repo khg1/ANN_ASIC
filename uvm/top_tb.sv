@@ -6,12 +6,10 @@
 `include "ann_core.sv"
 `include "ann_soc_axi.sv"
 `include "uvm_ann_pkg.sv"
-`include "uvm_dpi_pkg.sv"
 `include "axi_if.sv"
 
 module top_tb;
   import uvm_pkg::*;
-  import uvm_dpi_pkg::*;
   import uvm_ann_pkg::*;
 
   logic axi_clk = 0; // 100 MHz
