@@ -16,6 +16,11 @@ class uvm_axi_driver extends uvm_driver #(uvm_axi_item);
     vif.awvalid <= 0; vif.wvalid <= 0; vif.bready <= 0;
     vif.arvalid <= 0; vif.rready <= 0;
 
+    // wait until reset is released before driving any transaction, otherwise
+    // awready is still X and the do/while handshake loops fall through
+    wait (vif.rst_n === 1'b1);
+    @(posedge vif.clk);
+
     forever begin
       seq_item_port.get_next_item(req);
 
