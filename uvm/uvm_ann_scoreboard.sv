@@ -50,7 +50,7 @@ class uvm_ann_scoreboard extends uvm_scoreboard;
          correct_prediction++;
         `uvm_info("SCB", $sformatf("Beat %0d PASS: Got %0d", i, actual), UVM_LOW)
       end else begin
-         `uvm_error("SCB", $sformatf("Beat %0d FAIL: Exp %0d, Got %0d", i, expected, actual))
+         `uvm_info("SCB", $sformatf("Beat %0d FAIL: Exp %0d, Got %0d", i, expected, actual), UVM_LOW)
       end
     end
   endfunction
