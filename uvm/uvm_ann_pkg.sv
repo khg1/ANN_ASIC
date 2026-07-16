@@ -1,4 +1,3 @@
-`include "my_enum.sv"
 package uvm_ann_pkg;
 	import uvm_pkg::*;
 	typedef enum bit {READ = 0, WRITE = 1} axi_op_e;
