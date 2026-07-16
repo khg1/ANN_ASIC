@@ -17,7 +17,8 @@ class uvm_axi_item #(int ID_W = 1, int DATA_W = 32, int ADDR_W = 12) extends uvm
     if (op == WRITE) {
       data_q.size() == (len + 1);
     } else {
-      data_q.size() == 0; 
+      data_q.size() == 0;
+    }
   }
 
   // constraint to ensure that the burst length is 4 beats
