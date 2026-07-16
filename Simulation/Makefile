@@ -1,5 +1,6 @@
 TB_TOP = ../uvm/top_tb.sv
 INCDIRS = +incdir+../rtl +incdir+../uvm
+MEM_FILES = ../uvm/iris_dataset.mem ../uvm/iris_target.mem
 
 TESTNAME = uvm_ann_test
 
@@ -20,6 +21,7 @@ compile:
 
 run:
 	@echo "RUNNING SIMULATION"
+	cp -f $(MEM_FILES) .
 	./simv +UVM_TESTNAME=$(TESTNAME) +UVM_VERBOSITY=UVM_LOW \
 		-l sim.log +fsdb+autoflush -cm line+cond+fsm+tgl+branch+assert
 
@@ -28,4 +30,4 @@ verdi:
 	verdi -dbdir simv.daidir/ -cov -covdir simv.vdb -nologo &
 
 clean:
-	rm -rf simv simv.* *.log *.daidir verdi_config_file *.key *.h csrc novas.* verdiLog vfastLog *.fsdb vdCovLog
+	rm -rf simv simv.* *.log *.daidir verdi_config_file *.key *.h csrc novas.* verdiLog vfastLog *.fsdb vdCovLog *.mem
